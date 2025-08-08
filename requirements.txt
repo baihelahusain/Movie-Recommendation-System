@@ -1,7 +1,5 @@
 streamlit
 pandas
-pickle
+numpy
 requests
-time
-datetime
 gdown
