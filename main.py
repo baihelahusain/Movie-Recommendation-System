@@ -123,7 +123,7 @@ SIMILARITY_FILE_NAME = "similarity.pkl"
 # ==============================
 def download_similarity():
     if not os.path.exists(SIMILARITY_FILE_NAME):
-        url = f"https://drive.google.com/uc?id={SIMILARITY_FILE_ID}"
+        url = f"https://drive.google.com/file/d/1aGXEf5Fto0Fz3v2wgnG7yvPLkOxpVUZ1/view?usp=sharing"
         st.write("📥 Downloading similarity.pkl from Google Drive...")
         gdown.download(url, SIMILARITY_FILE_NAME, quiet=False)
 
@@ -394,5 +394,6 @@ else:  # Movie Recommendations mode
                     st.image(poster, width=200)
                     st.markdown(f"**{movie_title}**")
                     st.button(f"Select {movie_title}", key=f"select_{idx}", on_click=lambda m=movie_title: st.session_state.update({"selected_movie": m}))
+
 
 
