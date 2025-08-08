@@ -112,6 +112,21 @@ def load_css():
 
 # Load CSS
 load_css()
+#
+SIMILARITY_FILE_ID = "1aGXEf5Fto0Fz3v2wgnG7yvPLkOxpVUZ1"
+SIMILARITY_FILE_NAME = "similarity.pkl"
+
+# ==============================
+# Helper to download file if missing
+# ==============================
+def download_similarity():
+    if not os.path.exists(SIMILARITY_FILE_NAME):
+        url = f"https://drive.google.com/uc?id={SIMILARITY_FILE_ID}"
+        st.write("📥 Downloading similarity.pkl from Google Drive...")
+        gdown.download(url, SIMILARITY_FILE_NAME, quiet=False)
+
+# Call before loading data
+download_similarity()
 
 # API functions
 def fetch_movie_details(movie_id):
@@ -377,3 +392,4 @@ else:  # Movie Recommendations mode
                     st.image(poster, width=200)
                     st.markdown(f"**{movie_title}**")
                     st.button(f"Select {movie_title}", key=f"select_{idx}", on_click=lambda m=movie_title: st.session_state.update({"selected_movie": m}))
+
