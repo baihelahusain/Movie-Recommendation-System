@@ -4,6 +4,8 @@ import pickle
 import requests
 import time
 from datetime import datetime
+import os       
+import gdown
 
 # Set page configuration
 st.set_page_config(
@@ -392,4 +394,5 @@ else:  # Movie Recommendations mode
                     st.image(poster, width=200)
                     st.markdown(f"**{movie_title}**")
                     st.button(f"Select {movie_title}", key=f"select_{idx}", on_click=lambda m=movie_title: st.session_state.update({"selected_movie": m}))
+
 
